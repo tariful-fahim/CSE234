@@ -76,25 +76,41 @@ public class View extends JFrame {
             return;
         }
         if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-            h = h+50 ;//g.fillOval(w, h+50, 50, 50);
+			if(maze[(h+50)/50][w/50]!=1)
+			{
+			h = h+50 ;//g.fillOval(w, h+50, 50, 50);
 			if(h >400)
 				h =400;
+			}
+            
 		
         }
         else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-           w = w+50 ;// g.fillOval(w+50, h, 50, 50);
-		   if(w>550)
+		   if(maze[(h)/50][(w+50)/50]!=1)
+		   {
+			 w = w+50 ;// g.fillOval(w+50, h, 50, 50);
+		     if(w>550)
 			   w= 550;
+		   }
+           
         }
 		else if(ke.getKeyCode() == KeyEvent.VK_LEFT){
-			w = w-50;
-			if(w <50)
+			if(maze[(h)/50][(w-50)/50]!=1)
+			{
+			 w = w-50;
+			 if(w <50)
 				w = 50;
+			}
+			
 		}
 		else if(ke.getKeyCode() == KeyEvent.VK_UP){
+			if(maze[(h-50)/50][(w)/50]!=1)
+			{
 			h = h-50;
 			if(h <50)
 				h = 50;
+			}
+			
 		}
         repaint(); 
     }
