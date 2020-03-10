@@ -7,9 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class View extends JFrame {
-
-    /**
-     * Conventions:
+	
+/*
      * 
      * maze[row][col]
      * 
@@ -18,7 +17,7 @@ public class View extends JFrame {
      *         2 = visited node
      *         9 = target node
      *
-     * borders must be filled with "1" to void ArrayIndexOutOfBounds exception.
+     * borders filled with "1" .
      */
     private int [][] maze = 
         { {1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -34,7 +33,7 @@ public class View extends JFrame {
         };
     
     public View() {
-        setTitle("Simple Maze Solver");
+        setTitle("Escape from Maze");
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
