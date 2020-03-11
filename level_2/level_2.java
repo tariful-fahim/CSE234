@@ -122,9 +122,11 @@ public class level_2 extends JFrame{
 			x = 50; y = 50;
 			repaint();
 			ImageIcon icon = new ImageIcon("con.png");
-                        JOptionPane.showMessageDialog(null, "You Win !", 
+                        JOptionPane.showMessageDialog(null, "", 
                         "Congratulations", JOptionPane.INFORMATION_MESSAGE, icon);
-			
+			Newframe f = new Newframe();
+			f.setVisible(true);
+			f.setBounds(200, 200, 800, 800);
 			dispose();
 		}
 			
