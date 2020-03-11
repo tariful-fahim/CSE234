@@ -48,7 +48,7 @@ public class level_3 extends JFrame{
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
     public void paint(Graphics g) {
-        super.paint(g);
+        //super.paint(g);
         
         g.translate(40, 40);  //Translates the origin of the graphics context to the point (x, y) in the current coordinate system.
         
