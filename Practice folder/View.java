@@ -105,13 +105,13 @@ public class View extends JFrame {
     }
     
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                View view = new View();
-                view.setVisible(true);
-            }
-        });
+        level_3 frame = new level_3();
+        frame.setVisible(true);
+        frame.setBounds(200, 200, 800, 800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setTitle("Escape Maze - Level 2");
+        
+        frame.setLocationRelativeTo(null);
     }
     
 }
