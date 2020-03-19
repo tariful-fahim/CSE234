@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.util.Timer;
 import javax.swing.JTextField;
+import java.awt.Font;
 
 /**
  *
@@ -25,11 +26,13 @@ public class timer extends JFrame{
     JLabel msg, display;
     JTextField tf;
     Timer t;
+     Font f;
     timer(){
         startTimer = new JButton("Start the Timer");
         display = new JLabel();
         msg = new JLabel("Enter the countdown time");
         tf = new JTextField();
+         f = new Font("Arial",color.BOLD, 14)
         setLayout(null);
         add(startTimer);
         add(display);
@@ -39,7 +42,7 @@ public class timer extends JFrame{
         startTimer.setBounds(400, 100, 150, 30);
         display.setBounds(200, 400, 50, 50);
         tf.setBounds(300, 100, 50, 50);
-        
+        display.setFont(f);
         startTimer.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
