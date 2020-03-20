@@ -32,7 +32,7 @@ public class timer extends JFrame{
         display = new JLabel();
         msg = new JLabel("Enter the countdown time");
         tf = new JTextField();
-         f = new Font("Arial",color.BOLD, 14)
+         f = new Font("Arial", Font.BOLD, 14)
         setLayout(null);
         add(startTimer);
         add(display);
