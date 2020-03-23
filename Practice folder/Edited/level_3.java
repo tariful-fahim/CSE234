@@ -53,9 +53,6 @@ public class level_3 extends JFrame{
     };
 	
 	
-	/*level_3(){
-		
-	}*/
 	
 	level_3(){
 		
@@ -80,14 +77,14 @@ public class level_3 extends JFrame{
 							t.cancel();
 						}
 							
-                        else if(i < 0)
+                                                else if(i < 0)
 						{
-						    dispose();
+						        dispose();
 							t.cancel();
 							w = 20; h = 20;
 							JOptionPane.showMessageDialog(null, "you loose!");
 							Newframe f = new Newframe();
-			                f.setVisible(true);	
+			                                f.setVisible(true);	
 							
 						}
                             
@@ -112,69 +109,69 @@ public class level_3 extends JFrame{
                     case 9 : color = Color.GREEN; break;
                     default : color = Color.WHITE; break;
                     
-                }
+              }
               g.setColor(color);
-	          g.fillRect(20*col, 20*row, 20, 20);
+	      g.fillRect(20*col, 20*row, 20, 20);
             }
         }
         
-		g.setColor(Color.MAGENTA);
+        g.setColor(Color.MAGENTA);
         g.fillOval(w, h, 20, 20); //Fills an oval bounded by the specified rectangle with the current color.
     }
 	
   
     @Override
     protected void processKeyEvent(KeyEvent ke) {
-		int i = 0;
+	int i = 0;
         if (ke.getID() != KeyEvent.KEY_PRESSED) {
             return;
         }
+	    
         if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-			if(maze[(h+20)/20][w/20]!=1)
-			{ 
+	    if(maze[(h+20)/20][w/20]!=1)
+	    { 
                 if(maze[(h+20)/20][w/20]==9)
-				    i =1;		
-			    h = h+20 ;
-			    if(h >600)
-				    h =600;   
-			}
-            
-		
+	            i =1;		
+	        h = h+20 ;
+		if(h >600)
+		    h =600;   
+	    }	
         }
+	    
         else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-		   if(maze[(h)/20][(w+20)/20]!=1)
-		   {
+	      if(maze[(h)/20][(w+20)/20]!=1)
+	      {
                 if(maze[(h)/20][(w+20)/20]==9)
-					i = 1;
+		     i = 1;
                                 
-			    w = w+20 ;
-		        if(w>600)
-			        w= 600;
-		   }
+		w = w+20 ;
+	        if(w>600)
+		    w= 600;
+	      }
            
         }
-		else if(ke.getKeyCode() == KeyEvent.VK_LEFT){
-			if(maze[(h)/20][(w-20)/20]!=1)
-			{
-                if(maze[(h)/20][(w-20)/20]==9)
-		     		i = 1;
-			    w = w-20;
-			    if(w <20)
-				    w = 20;
-			}
+	else if(ke.getKeyCode() == KeyEvent.VK_LEFT){
+		if(maze[(h)/20][(w-20)/20]!=1)
+		{
+                    if(maze[(h)/20][(w-20)/20]==9)
+          		i = 1;
+		    w = w-20;
+		    if(w <20)
+		        w = 20;
+		}
 			
-		}
-		else if(ke.getKeyCode() == KeyEvent.VK_UP){
-			if(maze[(h-20)/20][(w)/20]!=1)
-			{
-                if(maze[(h-20)/20][w/20]==9)
-					i = 1;
+	}
+	else if(ke.getKeyCode() == KeyEvent.VK_UP){
+		if(maze[(h-20)/20][(w)/20]!=1)
+		{
+                    if(maze[(h-20)/20][w/20]==9)
+			i = 1;
                                 
-			    h = h-20;
-			    if(h <20)
-				    h = 20;
-			}
+		    h = h-20;
+		    if(h <20)
+			 h = 20;
 		}
+	}
         repaint(); 
 		
 		if(i == 1 && a==0)
@@ -182,7 +179,7 @@ public class level_3 extends JFrame{
 			//repaint();
 			a = 1;
 			ImageIcon icon = new ImageIcon("con.png");
-            JOptionPane.showMessageDialog(null, "","Congratulations", JOptionPane.INFORMATION_MESSAGE, icon);
+                        JOptionPane.showMessageDialog(null, "","Congratulations", JOptionPane.INFORMATION_MESSAGE, icon);
 			Newframe f = new Newframe();
 			f.setVisible(true);
 			//f.setBounds(200, 200, 800, 800);
@@ -197,7 +194,7 @@ public class level_3 extends JFrame{
 		//level_3 ob = new level_3(1);
         frame.setVisible(true);
         frame.setBounds(0, 0, 850, 665);
-		frame.setTitle("Escape Maze - Level 3");
+	frame.setTitle("Escape Maze - Level 3");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);    
     }
