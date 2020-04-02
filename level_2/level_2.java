@@ -1,16 +1,20 @@
-
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Timer;
+import javax.swing.JLabel;
+import java.util.TimerTask;
 
  
 public class level_2 extends JFrame{
-
+	JLabel display;
+	static int a = 0;	
+    
     int w = 50; int h = 50;
 	int x = 51; int y =50;
     private int[][] maze = {
@@ -26,8 +30,71 @@ public class level_2 extends JFrame{
 		{1,0,1,0,1,0,0,1,9,1,0,1,1},
 		{1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
+
+	
+	level_2(){
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.setLayout(null);
+		Timer t = new Timer();
+		display = new JLabel();
+		JLabel msg = new JLabel("Time Left: ");
+		this.add(display);
+		this.add(msg);
+		display.setBounds(800, 100, 100, 50);
+		msg.setBounds(700, 100, 100, 50);
+		time(t);
+		this.addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Exit(t);
+            }
+            
+        	});
+	}
+	void Exit(Timer t){
+		int x = JOptionPane.showConfirmDialog(null, "Do you want to quit game?", "Cancel", JOptionPane.YES_NO_OPTION);
+                if(x == JOptionPane.YES_OPTION){
+		    dispose();
+		    t.cancel();
+		    Newframe f = new Newframe();
+		    f.setVisible(true);
+		    f.setBounds(200, 200, 600, 300);
+                    
+                }
+	}
+	
+	void time(Timer t){
+		 	
+		t.scheduleAtFixedRate(new TimerTask(){
+                    int i = 20;
+                    @Override
+                    public void run() {
+                        
+                        display.setText(""+(i--));
+						if(a==1)
+						{
+							w =20 ; h = 20;
+							a = 0;
+							t.cancel();
+						}
+							
+                                                else if(i < 0)
+						{
+						        dispose();
+							t.cancel();
+							w = 20; h = 20;
+							JOptionPane.showMessageDialog(null, "you loose!");
+							Newframe f = new Newframe();
+			                                f.setVisible(true);	
+							
+						}
+                            
+                    }
+                }, 0, 1200);
+	}
+
     public void paint(Graphics g) {
-        super.paint(g);
+        //super.paint(g);
         
         g.translate(40, 40);  //Translates the origin of the graphics context to the point (x, y) in the current coordinate system.
         
@@ -126,7 +193,7 @@ public class level_2 extends JFrame{
                         "Congratulations", JOptionPane.INFORMATION_MESSAGE, icon);
 			Newframe f = new Newframe();
 			f.setVisible(true);
-			f.setBounds(200, 200, 800, 800);
+			f.setBounds(200, 200, 600, 300);
 			dispose();
 		}
 			
@@ -136,7 +203,6 @@ public class level_2 extends JFrame{
         level_2 frame = new level_2();
         frame.setVisible(true);
         frame.setBounds(200, 200, 800, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Graphics Design");  
         frame.setLocationRelativeTo(null);      
     }
