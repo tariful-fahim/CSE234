@@ -31,7 +31,7 @@ public class level_2 extends JFrame{
 		{1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
-	
+	//constructor
 	level_2(){
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.setLayout(null);
@@ -51,6 +51,8 @@ public class level_2 extends JFrame{
             
         	});
 	}
+	
+	//Exit the running game giving a warning message
 	void Exit(Timer t){
 		int x = JOptionPane.showConfirmDialog(null, "Do you want to quit game?", "Cancel", JOptionPane.YES_NO_OPTION);
                 if(x == JOptionPane.YES_OPTION){
@@ -63,6 +65,7 @@ public class level_2 extends JFrame{
                 }
 	}
 	
+	//Timer 
 	void time(Timer t){
 		 	
 		t.scheduleAtFixedRate(new TimerTask(){
@@ -92,7 +95,8 @@ public class level_2 extends JFrame{
                     }
                 }, 0, 1200);
 	}
-
+	
+	//Abstract method graphics to draw the rectangle
     public void paint(Graphics g) {
         //super.paint(g);
         
@@ -126,7 +130,7 @@ public class level_2 extends JFrame{
         g.fillOval(w, h, x, y); //Fills an oval bounded by the specified rectangle with the current color.
     }
 	
-  
+  	//key event to move the user object.
     @Override
     protected void processKeyEvent(KeyEvent ke) {
 		int i = 0;
@@ -184,6 +188,7 @@ public class level_2 extends JFrame{
 			x = 30; y=50;			
 		}
         repaint(); 
+	    	//when user can reach the final destination
 		if(i == 1)
 		{
 			x = 50; y = 50;
@@ -198,7 +203,7 @@ public class level_2 extends JFrame{
 		}
 			
     }
-
+	//Main method
     public static void main(String[] args) {
         level_2 frame = new level_2();
         frame.setVisible(true);
