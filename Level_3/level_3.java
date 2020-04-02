@@ -55,7 +55,7 @@ public class level_3 extends JFrame{
     };
 	
 	
-	
+	//Constructor
 	level_3(){
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.setLayout(null);
@@ -75,6 +75,7 @@ public class level_3 extends JFrame{
             
         	});
 	}
+	// Exit the running game by giving a warning message
 	void Exit(Timer t){
 		 x = JOptionPane.showConfirmDialog(null, "Do you want to quit game?", "Cancel", JOptionPane.YES_NO_OPTION);
                 if(x == JOptionPane.YES_OPTION){
@@ -87,7 +88,7 @@ public class level_3 extends JFrame{
                 }
 	}
 	
-
+	// Timer
 	void time(Timer t){
 		 	
 		t.scheduleAtFixedRate(new TimerTask(){
@@ -119,7 +120,7 @@ public class level_3 extends JFrame{
 	}
  
 	
-	
+	// Abstract method graphics to draw the rectangle on JFrame.
     public void paint(Graphics g) {
         //super.paint(g);
         
@@ -144,7 +145,7 @@ public class level_3 extends JFrame{
         g.fillOval(w, h, 20, 20); //Fills an oval bounded by the specified rectangle with the current color.
     }
 	
-  
+    // Key Event to move the object of user
     @Override
     protected void processKeyEvent(KeyEvent ke) {
 	int i = 0;
@@ -213,7 +214,7 @@ public class level_3 extends JFrame{
 			
     }              
 
-
+    // Main method
     public static void main(String[] args) {
         level_3 frame = new level_3();
 		//level_3 ob = new level_3(1);
