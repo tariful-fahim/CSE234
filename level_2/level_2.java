@@ -189,8 +189,9 @@ public class level_2 extends JFrame{
 		}
         repaint(); 
 	    	//when user can reach the final destination
-		if(i == 1)
+		if(i == 1 && a==0)
 		{
+			a = 1;
 			x = 50; y = 50;
 			repaint();
 			ImageIcon icon = new ImageIcon("con.png");
@@ -204,7 +205,7 @@ public class level_2 extends JFrame{
 			
     }
 	//Main method
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         level_2 frame = new level_2();
         frame.setVisible(true);
         frame.setBounds(200, 200, 800, 800);
